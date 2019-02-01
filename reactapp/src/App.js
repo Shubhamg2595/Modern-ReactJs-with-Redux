@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 class App extends Component {
+
+
   render() {
+
+    //refrencing js variables in our jsx Block
+    let buttonText = 'Click me';
+    let buttonStyle = {
+      backgroundColor: 'blue',
+      color: 'white'
+    }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div >
+        <label className="label" htmlFor="name">
+          {/*reason we use className instead of class keyword
+        is to make sure Js compiler in browser
+      dont get confused with class components and styles classes
+    defined for html elements
+  */}
+          Enter name:
+        </label>
+        <input id="name" type='text' />
+        <button style={buttonStyle}>
+          {buttonText}
+        </button>
       </div>
     );
   }
