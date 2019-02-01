@@ -1,6 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+
+import CommentDetail from './CommentDetail'
+const App = () => {
+    return (
+        <div className= "ui container comments">
+        
+        <CommentDetail />
+        <CommentDetail />
+        <CommentDetail />
+       
+        
+        </div>)
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));
