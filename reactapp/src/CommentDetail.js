@@ -1,12 +1,12 @@
 import React from 'react';
-import faker from 'Faker';
+
 
 const CommentDetail = (props) =>
 {
     return(
         <div className="comment">
         <a href='/' className='avatar'>
-            <img alt="avatar" src={props.image} />
+            <img alt="avatar" src={props.avatar} />
         </a>
 
         <div className="content">
@@ -17,7 +17,7 @@ const CommentDetail = (props) =>
             <span className="date">{props.timeAgo}</span>
             </div>
             <div className="text">
-            {props.post}
+            {props.content}
             </div>
 
         </div>
