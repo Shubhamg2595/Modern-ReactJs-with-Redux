@@ -7,12 +7,14 @@ const App = () => {
     
     return (
         <div className="ui container comments">
-            <ApprovalCard />
-            <CommentDetail author="sam"
+            <ApprovalCard>
+                <CommentDetail author="sam"
                 timeAgo="Today at 4:45 PM"
                 content = "blogPost1"
                 avatar = {faker.Image.avatar()}
                 />
+            </ApprovalCard>
+            
             <CommentDetail author="alex"
                 timeAgo="Today at 6:42 PM"
                 content = "blogPost2"
