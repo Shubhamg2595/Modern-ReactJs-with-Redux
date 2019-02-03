@@ -2,14 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
+{/*always remember that in this simmple example,
+render() method is invoked twice*/}
 class App extends React.Component {
-    render() {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            lat: null,
+            errorMessage:""
+        }
+
         window.navigator.geolocation.getCurrentPosition(
-            (position) => console.log(position),
-            (err) => console.log(err)
+            (position) => {
+                this.setState({ lat: position.coords.latitude })
+            },
+            (err) => {
+                this.setState({ errorMessage: err.message })
+            }
         )
+    }
+
+
+
+    render() {
+
         return (
-            <div>Latitude :         </div>
+            <div>Latitude : {this.state.lat}<br/>
+             Error:   {this.state.errorMessage}
+            </div>
         )
     }
 }
