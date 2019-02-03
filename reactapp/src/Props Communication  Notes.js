@@ -64,5 +64,10 @@ const CommentDetail = (props) =>
             {props.author}
 
 
+
+6. EXERCISE 1
+
+
+
             
 */}
