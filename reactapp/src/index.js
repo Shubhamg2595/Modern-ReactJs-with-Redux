@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay'
-
+import Spinner from './Spinner'
 {/*always remember that in this simmple example,
 render() method is invoked twice*/}
 class App extends React.Component {
@@ -30,7 +30,7 @@ class App extends React.Component {
             //yes we can take state from one comp and pass it as props to other state.
         }
 
-        return <div><h3>Loading...</h3></div>
+        return <div><Spinner message="Please Accept Location Request"/></div>
     }
 }
 
