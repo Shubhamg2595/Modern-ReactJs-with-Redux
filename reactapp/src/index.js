@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import SeasonDisplay from './SeasonDisplay'
 
 {/*always remember that in this simmple example,
 render() method is invoked twice*/}
@@ -26,7 +26,8 @@ class App extends React.Component {
             return <div>Error : {this.state.errorMessage}</div>
         }
         if (!this.state.errorMessage && this.state.lat) {
-            return <div>Laltitude : {this.state.lat}</div>
+            return <SeasonDisplay lat = {this.state.lat}/>
+            //yes we can take state from one comp and pass it as props to other state.
         }
 
         return <div><h3>Loading...</h3></div>
