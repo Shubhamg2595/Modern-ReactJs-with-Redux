@@ -6,16 +6,10 @@ import ReactDOM from 'react-dom';
 render() method is invoked twice*/}
 class App extends React.Component {
 
-    constructor(props) {
-        console.log('constructor invoked')
-        super(props);
-        this.state = {
+    state = {
             lat: null,
             errorMessage: ""
         }
-
-
-    }
 
     componentDidMount() {
         console.log('compone ntDidMount invoked')
