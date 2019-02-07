@@ -4,15 +4,20 @@ class SearchBar extends React.Component {
 
     state = { term: '' }
 
+    onFormSubmit = (event) => {
+        event.preventDefault();
+        //make sure when you use props in CBC, you use 'this' keyword
+        this.props.onSubmit(this.state.term);
+    }
     render() {
         return (
             <div className='ui segment'>
-                <form className='ui form'>
+                <form onSubmit={this.onFormSubmit} className='ui form'>
                     <div className='field'>
                         <label>Image Search</label>
                         <input type='text'
                             value={this.state.term}
-                            onChange={(event) => this.setState({ term: event.target.value.toUpperCase() })} />
+                            onChange={(event) => this.setState({ term: event.target.value })} />
                     </div>
                 </form>
             </div>
