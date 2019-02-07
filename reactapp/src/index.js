@@ -7,31 +7,35 @@ render() method is invoked twice*/}
 class App extends React.Component {
 
     constructor(props) {
+        console.log('constructor invoked')
         super(props);
         this.state = {
             lat: null,
-            errorMessage:""
+            errorMessage: ""
         }
 
+
+    }
+
+    componentDidMount() {
+        console.log('compone ntDidMount invoked')
         window.navigator.geolocation.getCurrentPosition(
-            (position) => {
-                this.setState({ lat: position.coords.latitude })
-            },
-            (err) => {
-                this.setState({ errorMessage: err.message })
-            }
+            position => this.setState({ lat: position.coords.latitude }),
+            err => this.setState({ errorMessage: err.message })
+            
         )
     }
 
-
-
     render() {
+        console.log('render invoked')
+        if (this.state.errorMessage && !this.state.lat) {
+            return <div>Error : {this.state.errorMessage}</div>
+        }
+        if (!this.state.errorMessage && this.state.lat) {
+            return <div>Laltitude : {this.state.lat}</div>
+        }
 
-        return (
-            <div>Latitude : {this.state.lat}<br/>
-             Error:   {this.state.errorMessage}
-            </div>
-        )
+        return <div><h3>Loading...</h3></div>
     }
 }
 
