@@ -7,30 +7,38 @@ render() method is invoked twice*/}
 class App extends React.Component {
 
     state = {
-            lat: null,
-            errorMessage: ""
-        }
+        lat: null,
+        errorMessage: ""
+    }
 
     componentDidMount() {
         console.log('compone ntDidMount invoked')
         window.navigator.geolocation.getCurrentPosition(
             position => this.setState({ lat: position.coords.latitude }),
             err => this.setState({ errorMessage: err.message })
-            
+
         )
     }
 
-    render() {
-        console.log('render invoked')
+    renderContent() {
         if (this.state.errorMessage && !this.state.lat) {
             return <div>Error : {this.state.errorMessage}</div>
         }
         if (!this.state.errorMessage && this.state.lat) {
-            return <SeasonDisplay lat = {this.state.lat}/>
-            //yes we can take state from one comp and pass it as props to other state.
+            return <SeasonDisplay lat={this.state.lat} />
         }
 
-        return <div><Spinner message="Please Accept Location Request"/></div>
+        return <div><Spinner message="Please Accept Location Request" /></div>
+
+    }
+
+
+    render() {
+        return(
+            <div className="border red">
+                {this.renderContent()}
+            </div>
+        )
     }
 }
 
