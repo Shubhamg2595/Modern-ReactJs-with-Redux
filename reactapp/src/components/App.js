@@ -11,6 +11,8 @@ class App extends React.Component {
                  'Client-ID fbaf1e96387802db8c03c401cdab92128752302321222559f84546568b0faf69'
             }
 
+        }).then((response)=>{
+            console.log(response.data.results)
         })
         console.log(term);
     }
@@ -24,6 +26,6 @@ class App extends React.Component {
                 <SearchBar onSubmit={this.onSearchSubmit} />
             </div>
         )
-    }
+    } 
 }
 export default App;  
