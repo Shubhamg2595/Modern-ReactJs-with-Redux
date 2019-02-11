@@ -1,5 +1,5 @@
 
-import './ImageList.css'
+import './ImageList.css';
 import React from 'react';
 
 const ImageList = (props) =>
