@@ -13,12 +13,18 @@
     that is already written in axios packages
 
 
-
+ 
     Axios is a standalone third party package that can
     be installed using npm.
     easier to use
     shorter line of code
 
+   2. handling requests
+   
+    whenever we make a request with axios,it returns
+    an object called a promise, where a promise is a 
+    object that gives us a little notification when
+    some amount of work like n/w requested.
     
     
 */}
