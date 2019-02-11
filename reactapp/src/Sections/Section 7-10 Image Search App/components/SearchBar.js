@@ -7,7 +7,7 @@ class SearchBar extends React.Component {
     onFormSubmit = (event) => {
         event.preventDefault();
         //make sure when you use props in CBC, you use 'this' keyword
-        this.props.onSubmit(this.state.term);
+        this.props.onSubmixt(this.state.term);
     }
     render() {
         return (
