@@ -5,17 +5,9 @@
 /.pnp
 .pnp.js
 
-#assets
-#confusion/public/assets
-
 # testing
 /coverage
 
-#important files
-reactapp/package-lock.json
-reactapp/package.json
-reduxapplications/package.json
-reduxapplications/package-lock.json
 # production
 /build
 
