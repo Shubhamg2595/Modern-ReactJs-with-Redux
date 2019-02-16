@@ -29,5 +29,16 @@ How to Fetch data with Redux
 
 5. API responds with Data
 
-6. Action creaor 
+6. Action creator returns an 'action' with the fetched data
+on 'payload' property
+also dispatch method will then send that action
+to different reducer methods
+
+7. Some reducer sees the action,returns the data 
+off the  'payload' 
+
+8.now since new state object will be created when reducer
+is executed, redux/react-redux cause our react app
+to be rerendered
+
 */
