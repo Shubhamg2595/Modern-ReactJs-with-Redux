@@ -10,21 +10,65 @@ export const fetchPosts =  () =>
 }
 
 /*
-above is a bad approach for redux development,
 
-bcoz in above code we are using 'async await' functions that 
-changes the code which is transpiled in es2015 and hence the
-resulted code  is not plain javascript object anymore
-which is must for any action creator with type and payload property
+MIDDLEWARES IN REDUX
 
-But if we remove async await from our action creator,
-we will actually get a plain js Object but then we wont
-actually receive any response, instead we will be
-receiving a 'promise' object that is going to give
-us access to our data when we eventually get it at some point 
-in the future
+1. Synchronous action creators
+creates a synchronous or sync action creator that returns 
+an action object with  all the relevant data 
+attached to that object and is  ready to be processed by our 
+reducers.
 
-also by the time our action gets to a reducer(fraction of a 
-millisecond) , the api has still not responeded with the  data
+2. Asynchronous action creators
+is the one that is going to require a little bit of
+time before it is ready to eventually dispatch an action. 
+
+whenever we need to deal with network requests via
+action creator, we need to use Asynchronous action creators
+and need the middlewares.
+
+3. What is Middlewares in redux?
+
+in redux, when we are using middlewares,
+dispatch function does not send actions directly to reducers
+instead all the actions are first send through 
+all of thedifferent middlewares in our application.
+
+4. MIDDLEWARES IN REDUX
+
+a. it is a function that gets called with every
+ action we dispatch
+
+b. inside of a fn(), we have the ability to 
+STOP,MODIFY or otherwise mess aroun with actions
+example: we can create a simple middlewares
+that console log all the actions that get dispatched.
+
+c. tons of open-source middlewars exist,
+possible to write our own middlewares.
+
+d. we use "redux=thunk" to solve our  async issues
+
+
+5.REDUX-THUNK
+
+A. NORMAL rules for action creators in redux...
+
+a. Action creators must return plain action objects
+a.i) Actions must have a type property
+a.ii)Actions can optionally have a payload property 
+
+B. RULES FOR ACTION CREATORS WITH REDUX THUNK
+
+a. Action creators can return action objects
+
+a.i) if an action object is returned , it must have a type
+    an also optional 'payload'
+        or
+b. action creators can return functions
+
+-----------------------------------------------------------
+
+
 
 */
