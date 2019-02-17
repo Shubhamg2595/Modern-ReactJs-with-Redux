@@ -2,6 +2,18 @@ import _ from 'lodash'
 import jsonPlaceholder from '../api/jsonPlaceholder'
 
 
+export const fetchPostsAndUsers = () => async (dispatch,getState) =>
+{
+    await dispatch(fetchPosts())
+    
+    const userIds=_.uniq(_.map(getState().posts,'userId'))
+    // console.log(userIds)
+    userIds.forEach(id=>dispatch(fetchUser(id)))
+
+
+}
+
+
 export const fetchPosts =  () => async dispatch => 
         {
         const response = await jsonPlaceholder.get('./posts')
@@ -10,18 +22,12 @@ export const fetchPosts =  () => async dispatch =>
     }
 
 
-export const fetchUser = (id) =>  dispatch =>
-{
-    _fetchUser(id,dispatch);   
-}
-
-//creating a private function
-const _fetchUser = _.memoize(async(id,dispatch) =>
+export const fetchUser = (id) => async dispatch =>
 {
     const response  = await jsonPlaceholder.get(`./users/${id}`)
 
     dispatch({type:'FETCH_USER',payload:response.data})
-})
+}
 
 /*
 
@@ -83,15 +89,6 @@ b. action creators can return functions
 
 -----------------------------------------------------------
 
-major downside of using memoization is that now we can 
-call this action creator only one time for each unique 
-user id and that means that we can only fetch each user
-only  one time inside of a application 
 
-Solution to above problem
-
-create fetchpostsandUsers() action creator that calls
-fetchpost and get list of posts and find all unique userid
-and then call fetchUsers() with each userId
 
 */
