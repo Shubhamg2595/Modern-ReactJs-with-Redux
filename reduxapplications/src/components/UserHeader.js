@@ -10,8 +10,8 @@ class UserHeader extends React.Component {
     }
     
     render() {
-        const user = this.props.users.find((user) => user.id===this.props.userId );
-        if(!user)
+        const user = this.props;
+         if(!user)
         {
             return(
                 <div>Loading...</div>
@@ -25,9 +25,9 @@ class UserHeader extends React.Component {
     }
 }
 
-const mapStateToProps = state =>
+const mapStateToProps = (state,ownProps) =>
 {
-    return {users:state.users}
+    return {user:state.users.find(user => user.id === ownProps.userId )}
 }
 
 
