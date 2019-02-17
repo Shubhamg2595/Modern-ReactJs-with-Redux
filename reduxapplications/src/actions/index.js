@@ -8,10 +8,18 @@ export const fetchPosts =  () => async dispatch =>
         dispatch({type:'FETCH_POSTS',payload:response.data})
     }
 
+
+export const fetchUser = (id) => async dispatch =>
+{
+    const response  = await jsonPlaceholder.get(`./users/${id}`)
+
+    dispatch({type:'FETCH_USER',payload:response.data})
+}
+
 /*
 
 MIDDLEWARES IN REDUX
-
+ 
 1. Synchronous action creators
 creates a synchronous or sync action creator that returns 
 an action object with  all the relevant data 
