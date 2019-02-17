@@ -2,13 +2,13 @@ import jsonPlaceholder from '../api/jsonPlaceholder'
 
 export const fetchPosts =  () =>
 {
-    const promise =  jsonPlaceholder.get('./posts')
-    return{
-        type:'FETCH_POSTS',
-        payload:promise 
+    return async function(dispatch,getState)
+    {
+        const response = await jsonPlaceholder.get('./posts')
+        
+        dispatch({type:'FETCH_POSTS',payload:response})
     }
 }
-
 /*
 
 MIDDLEWARES IN REDUX
