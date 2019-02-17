@@ -83,6 +83,15 @@ b. action creators can return functions
 
 -----------------------------------------------------------
 
+major downside of using memoization is that now we can 
+call this action creator only one time for each unique 
+user id and that means that we can only fetch each user
+only  one time inside of a application 
 
+Solution to above problem
+
+create fetchpostsandUsers() action creator that calls
+fetchpost and get list of posts and find all unique userid
+and then call fetchUsers() with each userId
 
 */
