@@ -24,5 +24,7 @@ receiving a 'promise' object that is going to give
 us access to our data when we eventually get it at some point 
 in the future
 
+also by the time our action gets to a reducer(fraction of a 
+millisecond) , the api has still not responeded with the  data
 
 */
