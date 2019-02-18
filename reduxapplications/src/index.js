@@ -23,7 +23,7 @@ const App = () =>
             <BrowserRouter>
                 <div>
                 <Route path= "/" exact component = {pageOne} />
-                <Route path= "/pageTwo" exact component = {pageTwo} />
+                <Route path= "/pageTwo"  component = {pageTwo} />
                 </div>
             </BrowserRouter>
         </div>
@@ -38,21 +38,13 @@ ReactDOM.render(
 
 
 /*
-APP CHALLENGES
 
-1. Need to be able to navigate around
-to separate pages in our app
-
-2. need to allow user to login/logout   
-
-3. NEED  to handle froms in redux
-
-4.need to master crud operation in react/redux
-
-5. good error handling
--------------------------------------------------------
-
-
+//  <Route path= "/"  component = {pageOne} />
+// <Route path= "/pageTwo"  component = {pageTwo} />
+              
+if we dont use exact keyword, then above code will return b
+output of both the components , when we search for
+pageTwo component url...
 
 
 
